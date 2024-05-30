@@ -58,8 +58,3 @@ export const StyledDivider = styled(Divider)`
   margin-right: 48px;
   margin-top: 0px;
 `;
-
-export const StyledGraphBox = styled(Box)`
-  margin-top: 24px;
-  margin-left: 12px;
-`;

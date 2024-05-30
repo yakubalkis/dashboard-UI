@@ -1,5 +1,6 @@
-import { GridColDef } from "@mui/x-data-grid";
+import { GridColDef, GridValueFormatter } from "@mui/x-data-grid";
 import { HeaderCell } from "../table-cells/header-cell";
+import { formatDate } from "../../../utils/formatDates";
 
 const defaultConfig: Partial<GridColDef> = {
   flex: 0.5,
@@ -36,6 +37,9 @@ export const getCoursesTableColumns = () => {
       field: "due_date",
       headerName: "Due Date",
       ...defaultConfig,
+      valueFormatter: (value: GridValueFormatter) => {
+        return formatDate(value.toString());
+      },
     },
   ];
 };

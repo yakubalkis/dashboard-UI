@@ -1,6 +1,7 @@
 import { SeparatedActivityData } from "../../types/types";
 import Chart from "react-apexcharts";
-import { LegendList } from "../graph-card/graph-card-legend-list/graph-card-legend-list";
+import { LegendList } from "../chart-legend-list/chart-legend-list";
+import { formatDates } from "../../utils/formatDates";
 
 const legendTitles = ["Exams Completed", "Hours", "Lessons Taken"];
 
@@ -60,7 +61,7 @@ export const ActivityHoursChart: React.FC<SeparatedActivityData> = ({
         enabled: false,
       },
       xaxis: {
-        categories: x_axis,
+        categories: formatDates(x_axis.dates),
         tickPlacement: "on",
         axisBorder: {
           show: false,
@@ -68,12 +69,9 @@ export const ActivityHoursChart: React.FC<SeparatedActivityData> = ({
       },
       yaxis: [
         {
-          //tickAmount: 4,
-          //stepSize: 100,
           lines: {
             show: false,
           },
-          //max: 400,
           axisBorder: {
             show: false,
           },
@@ -82,9 +80,6 @@ export const ActivityHoursChart: React.FC<SeparatedActivityData> = ({
           },
           tooltip: {
             enabled: true,
-          },
-          labels: {
-            //formatter: (value: number) => formatNumber(value),
           },
         },
       ],

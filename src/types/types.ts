@@ -2,10 +2,10 @@ export interface API_RESPONSE {
   data: {
     activity_hours: ActivityHour[];
     in_progress_courses: Course[];
-    skills_in_development: SkillDevelopment[];
+    skills_in_development: Skill[];
     teams: Team[];
     top_employees: TopEmployee[];
-    top_skills: TopSkill[];
+    top_skills: Skill[];
     upcoming_courses: Course[];
     total_employees: number;
     total_completed_courses: number;
@@ -28,11 +28,6 @@ export interface Course {
   id?: number;
 }
 
-interface SkillDevelopment {
-  employees: number;
-  skill: string;
-}
-
 interface Employee {
   current_score: number;
   email: string;
@@ -48,7 +43,7 @@ interface TopEmployee {
   title: string;
 }
 
-interface TopSkill {
+export interface Skill {
   employees: number;
   skill: string;
 }

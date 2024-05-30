@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import { GridPaginationModel } from "@mui/x-data-grid";
-import { Course } from "../../../types/types";
-import * as S from "./courses-table.styled";
-import { getCoursesTableColumns } from "./courses-table.columns";
+import { Skill } from "../../../types/types";
+import * as S from "./skills-table.styled";
+import { getSkillsTableColumns } from "./skills-table.columns";
 
 type Table = {
-  rows: Course[];
+  rows: Skill[];
 };
 
-export const CoursesTable: React.FC<Table> = ({ rows }) => {
-  const columns = getCoursesTableColumns();
+export const SkillsTable: React.FC<Table> = ({ rows }) => {
+  const columns = getSkillsTableColumns();
   const [paginationModel, setPaginationModel] = useState<GridPaginationModel>({
     page: 0,
     pageSize: 5,

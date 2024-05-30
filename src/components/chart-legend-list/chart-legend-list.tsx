@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "./graph-card-legend-list.styled";
+import * as S from "./chart-legend-list.styled";
 import { Typography } from "@mui/material";
 
 type Props = {
