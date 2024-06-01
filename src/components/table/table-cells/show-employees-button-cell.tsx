@@ -20,6 +20,7 @@ export const ShowEmployeesButtonCell = (params: GridRenderCellParams) => {
         textDecoration: "none",
         textTransform: "none",
         marginBottom: "3px",
+        borderRadius: "15px",
       }}
       size="large"
       variant="outlined"

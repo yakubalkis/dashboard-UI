@@ -6,15 +6,18 @@ import { useAppDispatch } from "../redux/store";
 import { LoadingScreen } from "../components/loading-screen/loading-screen";
 import { ActivityHoursChart } from "../components/chart/activity-hours-chart/activity-hours-chart";
 import { transformActivityHoursDataToChartData } from "../utils/transformActivityHoursDataToChartData";
-import { DashboardCard } from "../components/dashboard-card/dashboard-card";
+import { DashboardCard } from "../components/cards/dashboard-card/dashboard-card";
 import { CoursesTable } from "../components/table/courses-table/courses-table";
 import { TableTabs } from "../components/table/table-tabs/table-tabs";
 import { transformTableData } from "../utils/transformTableData";
 import { SkillsTable } from "../components/table/skills-table/skills-table";
+import { TeamsCard } from "../components/cards/teams-card";
+import { CompanyCard } from "../components/cards/company-card/company-card";
+import { TopEmployeesCard } from "../components/cards/top-employees-card";
 import * as S from "./Dashboard.styled";
 
 export const Dashboard: React.FC = () => {
-  const [getDashboardQuery, { data, isSuccess, error, isLoading }] =
+  const [getDashboardQuery, { data, error, isLoading }] =
     useLazyGetDashboardQuery();
   const dispatch = useAppDispatch();
 
@@ -36,12 +39,9 @@ export const Dashboard: React.FC = () => {
 
   useEffect(() => {
     getDashboardQuery();
-  }, []);
+    dispatch(setTeams(data?.data.teams || []));
+  }, [data]);
   console.log(data?.data);
-
-  if (isSuccess) {
-    dispatch(setTeams(data?.data.teams));
-  }
 
   if (isLoading) return <LoadingScreen />;
 
@@ -50,6 +50,18 @@ export const Dashboard: React.FC = () => {
   return (
     <S.StyledRootBox>
       <Typography variant="h5">Dashboard UI</Typography>
+
+      <DashboardCard
+        title={"Company"}
+        CardComponent={
+          <CompanyCard
+            topEmployeesCardComponent={
+              <TopEmployeesCard employees={data?.data.top_employees || []} />
+            }
+            teamsCardComponent={<TeamsCard teams={data?.data.teams || []} />}
+          />
+        }
+      />
 
       <DashboardCard
         title={"Activity Hours"}

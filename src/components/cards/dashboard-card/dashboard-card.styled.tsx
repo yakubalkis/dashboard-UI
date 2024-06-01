@@ -2,12 +2,13 @@ import { Box, styled, Typography } from "@mui/material";
 
 export const RootBox = styled(Box)`
   width: 95%;
-  height: 500px;
+  min-height: 500px;
   border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.palette.divider};
   padding: 24px;
-  margin-top: 36px;
-  background-color: white;
+  background-color: white; 
+  overflow: auto; 
+  overflow-x: hidden;
 `;
 
 export const HeaderDiv = styled(Box)`

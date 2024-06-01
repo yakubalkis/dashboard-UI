@@ -1,6 +1,6 @@
 import React from "react";
-import * as S from "./dashboard-card.styled";
 import { Box } from "@mui/material";
+import * as S from "./dashboard-card.styled";
 
 type Props = {
   title: string;

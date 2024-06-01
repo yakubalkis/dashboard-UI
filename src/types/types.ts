@@ -34,9 +34,10 @@ export interface Employee {
   lessons_taken: number;
   name: string;
   skills_being_developed: string[];
+  title: string;
 }
 
-interface TopEmployee {
+export interface TopEmployee {
   current_score: number;
   email: string;
   name: string;
