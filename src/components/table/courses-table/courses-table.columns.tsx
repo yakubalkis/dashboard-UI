@@ -1,6 +1,8 @@
 import { GridColDef, GridValueFormatter } from "@mui/x-data-grid";
 import { HeaderCell } from "../table-cells/header-cell";
 import { formatDate } from "../../../utils/formatDates";
+import { AvatarCell } from "../table-cells/avatar-cell";
+import { StatusCell } from "../table-cells/status-cell";
 
 const defaultConfig: Partial<GridColDef> = {
   flex: 0.5,
@@ -16,6 +18,7 @@ export const getCoursesTableColumns = () => {
       field: "assigned_to",
       headerName: "Assigned To",
       ...defaultConfig,
+      renderCell: AvatarCell,
     },
     {
       field: "title",
@@ -32,6 +35,7 @@ export const getCoursesTableColumns = () => {
       field: "status",
       headerName: "Status",
       ...defaultConfig,
+      renderCell: StatusCell,
     },
     {
       field: "due_date",

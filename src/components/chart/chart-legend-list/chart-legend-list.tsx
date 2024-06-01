@@ -1,6 +1,6 @@
 import React from "react";
-import * as S from "./chart-legend-list.styled";
 import { Typography } from "@mui/material";
+import * as S from "./chart-legend-list.styled";
 
 type Props = {
   legendTitles: string[];

@@ -28,7 +28,7 @@ export interface Course {
   id?: number;
 }
 
-interface Employee {
+export interface Employee {
   current_score: number;
   email: string;
   lessons_taken: number;
@@ -48,7 +48,7 @@ export interface Skill {
   skill: string;
 }
 
-interface Team {
+export interface Team {
   description: string;
   employees: Employee[];
   overall_score: string;
@@ -56,12 +56,7 @@ interface Team {
   total_employee_count: number;
 }
 
-export interface Chart {
-  y_axes: string[];
-  x_axis: string[];
-}
-
-export interface SeparatedActivityData {
+export interface ActivityHoursChartData {
   x_axis: { dates: string[] };
   y_axes: {
     examsCompleted: number[];

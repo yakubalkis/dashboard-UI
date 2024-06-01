@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./dashboard-card.styled";
-import { CustomTypography } from "../custom-typography";
 import { Box } from "@mui/material";
 
 type Props = {
@@ -15,7 +14,7 @@ export const DashboardCard: React.FC<Props> = ({ title, CardComponent }) => {
         <div style={{ width: "100%" }}>
           <S.HeaderDiv>
             <S.InnerDiv>
-              <CustomTypography variant="h5">{title}</CustomTypography>
+              <S.StyledTypography variant="h5">{title}</S.StyledTypography>
             </S.InnerDiv>
           </S.HeaderDiv>
 

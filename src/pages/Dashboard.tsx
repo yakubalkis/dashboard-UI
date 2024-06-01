@@ -1,21 +1,24 @@
 import { useEffect } from "react";
-import { useLazyGetDashboardQuery } from "../api/appApi";
-import { LoadingScreen } from "../components/loading-screen/loading-screen";
 import { Box, Typography } from "@mui/material";
-import * as S from "./Dashboard.styled";
-import { ActivityHoursChart } from "../components/activity-hours-chart/activity-hours-chart";
-import { separateActivityData } from "../utils/separateActivityData";
+import { useLazyGetDashboardQuery } from "../api/appApi";
+import { setTeams } from "../redux/slice/employeeSlice";
+import { useAppDispatch } from "../redux/store";
+import { LoadingScreen } from "../components/loading-screen/loading-screen";
+import { ActivityHoursChart } from "../components/chart/activity-hours-chart/activity-hours-chart";
+import { transformActivityHoursDataToChartData } from "../utils/transformActivityHoursDataToChartData";
 import { DashboardCard } from "../components/dashboard-card/dashboard-card";
 import { CoursesTable } from "../components/table/courses-table/courses-table";
 import { TableTabs } from "../components/table/table-tabs/table-tabs";
 import { transformTableData } from "../utils/transformTableData";
 import { SkillsTable } from "../components/table/skills-table/skills-table";
+import * as S from "./Dashboard.styled";
 
 export const Dashboard: React.FC = () => {
-  const [getDashboardQuery, { data, error, isLoading }] =
+  const [getDashboardQuery, { data, isSuccess, error, isLoading }] =
     useLazyGetDashboardQuery();
+  const dispatch = useAppDispatch();
 
-  const activityHoursChartData = separateActivityData(
+  const activityHoursChartData = transformActivityHoursDataToChartData(
     data?.data.activity_hours || []
   );
 
@@ -35,6 +38,10 @@ export const Dashboard: React.FC = () => {
     getDashboardQuery();
   }, []);
   console.log(data?.data);
+
+  if (isSuccess) {
+    dispatch(setTeams(data?.data.teams));
+  }
 
   if (isLoading) return <LoadingScreen />;
 

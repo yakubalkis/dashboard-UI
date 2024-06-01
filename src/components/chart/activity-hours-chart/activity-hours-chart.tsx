@@ -1,13 +1,13 @@
-import { SeparatedActivityData } from "../../types/types";
 import Chart from "react-apexcharts";
+import { formatDates } from "../../../utils/formatDates";
 import { LegendList } from "../chart-legend-list/chart-legend-list";
-import { formatDates } from "../../utils/formatDates";
+import { ActivityHoursChartData } from "../../../types/types";
 
 const legendTitles = ["Exams Completed", "Hours", "Lessons Taken"];
 
 const colors = ["#67a8fe", "#ffc36b", "#ff7870"];
 
-export const ActivityHoursChart: React.FC<SeparatedActivityData> = ({
+export const ActivityHoursChart: React.FC<ActivityHoursChartData> = ({
   x_axis,
   y_axes,
 }) => {

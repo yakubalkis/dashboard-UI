@@ -1,8 +1,8 @@
-import { ActivityHour, SeparatedActivityData } from "../types/types";
+import { ActivityHour, ActivityHoursChartData } from "../types/types";
 
-export const separateActivityData = (
+export const transformActivityHoursDataToChartData = (
   activityHours: ActivityHour[]
-): SeparatedActivityData => {
+): ActivityHoursChartData => {
   const dates: string[] = [];
   const examsCompleted: number[] = [];
   const hours: number[] = [];

@@ -1,5 +1,6 @@
 import { GridColDef } from "@mui/x-data-grid";
 import { HeaderCell } from "../table-cells/header-cell";
+import { ShowEmployeesButtonCell } from "../table-cells/show-employees-button-cell";
 
 const defaultConfig: Partial<GridColDef> = {
   flex: 0.5,
@@ -15,6 +16,7 @@ export const getSkillsTableColumns = () => {
       field: "employees",
       headerName: "Employees",
       ...defaultConfig,
+      renderCell: ShowEmployeesButtonCell,
     },
     {
       field: "skill",
