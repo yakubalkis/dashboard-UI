@@ -41,7 +41,6 @@ export const Dashboard: React.FC = () => {
     getDashboardQuery();
     dispatch(setTeams(data?.data.teams || []));
   }, [data]);
-  console.log(data?.data);
 
   if (isLoading) return <LoadingScreen />;
 
