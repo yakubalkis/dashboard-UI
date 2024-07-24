@@ -1,5 +1,5 @@
 # TrainIQ Case
-This project is case application built with React.js, TypeScript and Material UI, using Vite.js as the build tool. It integrates various libraries and tools for state management, styling, routing, data fetching, and more. <br>
+This project is an application built with React.js, TypeScript and Material UI, using Vite.js as the build tool. It integrates various libraries and tools for state management, styling, routing, data fetching, and more. <br>
 
 ## Installation
 
